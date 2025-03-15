@@ -55,7 +55,36 @@ function Question3() {
 //Question3 ends
 
 //Question 4 : Password Validator
+function Question4() {
+  let password = 'Hello1'
+  var hasUpperCase = /[A-Z]/.test(password)
+  var hasLowerCase = /[a-z]/.test(password)
+  var numerics = /[0-9]/.test(password)
+  let validated = false
+  if (hasUpperCase && hasLowerCase && numerics) validated = true
+  console.log(validated)
+}
 
+function sumUntilNegative(arr) {
+  let sum = 0
+
+  arr.reduce((acc, curr, index, array) => {
+    if (curr < 0 || (array[index + 1] !== undefined && array[index + 1] < 0)) {
+      return acc // Stop summing when a negative number is found
+    }
+
+    sum += curr + (array[index + 1] ?? 0) // Add next element if it exists
+    console.log(`Sum of ${curr} + ${array[index + 1] ?? 0} = ${sum}`)
+
+    return acc + curr
+  }, 0)
+
+  return sum
+}
+
+// Example usage:
+const numbers = [3, 5, 2, 8, -1, 4, 6]
+console.log(`Final Sum: ${sumUntilNegative(numbers)}`)
 // let values = [1, 34, 5, 66, 224, 2, -6, 55, 5, 324, 6]
 // function sum(a, b) {
 //   if (a >= 0 && b >= 0)
